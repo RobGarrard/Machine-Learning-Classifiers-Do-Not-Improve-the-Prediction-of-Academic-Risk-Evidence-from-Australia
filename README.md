@@ -53,3 +53,6 @@ For any questions or clarifications, contact <a href="mailto:robert.garrard@csir
 
 
 
+## Previous Version
+
+In previous versions of this paper, an error was present in the code used to clean the raw data resulting in many students incorrectly being classified as 'At Standard'. This error has been rectified as of February 1, 2019, and the paper substantially rewritten. 
