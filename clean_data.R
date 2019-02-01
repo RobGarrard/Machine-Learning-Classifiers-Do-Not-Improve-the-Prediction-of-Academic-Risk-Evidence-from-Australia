@@ -1,4 +1,4 @@
-#!\usr\bin\Rscript
+#!/usr/bin/Rscript
 # Organizes raw NAPLAN data into workable format
 #
 # Files that must be in the working directory:
@@ -6,8 +6,9 @@
 #   student_deidentified_2014.csv
 #
 # Output files:
-#   NAPLAN_data.csv
-setwd("~/rob.garrard@csiro.it/Projects/Classification of High Risk Students/R Codes/2019.01.01")
+#   NAPLAN_data_reg.Rda
+#   NAPLAN_data_clas.Rda
+
 
 data.2013 <- read.csv('student_deidentified_2013.csv')
 data.2014 <- read.csv('student_deidentified_2014.csv')

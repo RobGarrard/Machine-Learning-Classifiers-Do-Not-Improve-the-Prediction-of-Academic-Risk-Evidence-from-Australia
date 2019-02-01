@@ -1,6 +1,6 @@
-# A Machine Learning Approach for Detecting Students at Risk of Low Academic Achievement
+# Machine Learning Classifiers Do Not Improve the Prediction of Academic Risk: Evidence from Australia
 
-R codes for <font style="font-variant:small-caps">Cornell-Farrow and Garrard</font> (2018). <i>A Machine Learning Approach for Detecting Students at Risk of Low Academic Achievement</i>. arXiv preprint. <a href='https://arxiv.org/abs/1807.07215'>arXiv:1807.07215</a>
+R codes for <font style="font-variant:small-caps">Cornell-Farrow and Garrard</font> (2018). <a href='https://arxiv.org/abs/1807.07215'>arXiv:1807.07215</a>
 
 
 ## Data Availability
@@ -15,15 +15,38 @@ student\_deidentified\_2013.csv
 student\_deidentified\_2014.csv
 
 
-## Construction of Readrisk and Mathrisk variables
+## Cleaning the Data Set
 
-The above data contains raw NAPLAN scores for each student who sat it in 2013-14. In order to turn these raw scores into a 0/1 variable corresponding to a student performing 'below standard', we followed the cutoffs published by ACARA at <a href="http://nap.edu.au/results-and-reports/how-to-interpret/score-equivalence-tables">http://nap.edu.au/results-and-reports/how-to-interpret/score-equivalence-tables</a>. 
+The above data contains raw NAPLAN scores for each student who sat it in 2013-14. In order to turn these raw scores into a dummy variable corresponding to a student performing 'At Standard' or Below Standard', we followed the cutoffs published by ACARA at <a href="http://nap.edu.au/results-and-reports/how-to-interpret/score-equivalence-tables">http://nap.edu.au/results-and-reports/how-to-interpret/score-equivalence-tables</a>. We use the cutoffs corresponding to the year in which the student sat NAPLAN (i.e., we used 2013 cutoffs for students sitting the test in 2013, etc.) 
 
-In order to process the raw data into the variables used in our study, place the .csv files obtained from ACARA into a folder. Open the Stata file 'createdata.do' and edit the third line (cd "\\...") such that it sets the working directory as the folder in which the ACARA data is stored. Execute the file in Stata. The code will output a Stata data file 'NAPLAN\_data.dta'.
+In order to process the raw data into the variables used in our study, execute the 'clean_data.R' script with the above two files placed in the working directory. The code will output two R data files, 'NAPLAN\_data\_reg.Rda' and 'NAPLAN\_data\_clas.Rda'. The former has each student's raw score as the dependent variable to be used with regression models, the latter uses ACARA cutoffs to create an 'At Standard'/'Below Standard' dummy as the dependent variable, which is the data set used in this study.
 
 ## Estimating the Classifiers
 
-The analysis is split into grade 3, and grades 5 and above. There are 4 Jupyter notebooks, corresponding to: literacy grade 3; numeracy grade 3; literacy grades 5 and above; and numeracy grades 5 and above. Tables and figures in the paper were imported from these outputs. Each time a classifier is run, the random seed is reset to 2718, so the notebooks should produce exactly the same output each time they are excuted.
+Classifiers may be estimated by running the Jupyter Notebook 'main.ipynb'. This notebook was executed on a computer with 12 cores and a GPU with a total runtime of around 1 hour 15 minutes. 
+
+Elastic net and random forest classifiers exploit parallel processing for bootstrap samples. The neural net is trained on the GPU.
+
+## Environment
+
+We executed the notebook in the following environment:
+
+	- Jupyter notebook with R kernel
+	- CUDA v9.0
+	- cuDNN v7
+	- python v3.6
+	- tensorflow-gpu v1.12.0 
+	- R v3.5.2 (libraries listed in main.ipynb)
+	
+Note that tensorflow-gpu does not run on python versions higher than 3.6. If CUDA is not available this may be run with tensorflow on the CPU, however this is not recommended.
+
+If you are using a tensorflow with a GPU, be sure to install the Keras package for R using the GPU option. I.e.,
+
+	install.packages('keras')
+	library(keras)
+	install_keras(tensorflow='gpu')
+
+
 
 
 For any questions or clarifications, contact <a href="mailto:robert.garrard@csiro.au">robert.garrard@csiro.au</a>.
