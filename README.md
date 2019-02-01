@@ -1,7 +1,6 @@
 # Machine Learning Classifiers Do Not Improve the Prediction of Academic Risk: Evidence from Australia
 
-R codes for <font style="font-variant:small-caps">Cornell-Farrow and Garrard</font> (2018). <a href='https://arxiv.org/abs/1807.07215'>arXiv:1807.07215</a>
-
+R codes for <font style="font-variant:small-caps">Cornell-Farrow and Garrard</font> (2018). 
 
 ## Data Availability
 The data used in this paper are the de-identified individual-level NAPLAN data from 2013 and 2014. This data set is confidential but may be obtained by researchers through ACARA's Data Access Program at <a href="http://www.acara.edu.au/contact-us/acara-data-access">http://www.acara.edu.au/contact-us/acara-data-access</a>.
