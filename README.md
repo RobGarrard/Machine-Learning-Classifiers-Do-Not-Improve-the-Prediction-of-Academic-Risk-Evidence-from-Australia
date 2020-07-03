@@ -1,6 +1,8 @@
 # Machine Learning Classifiers Do Not Improve the Prediction of Academic Risk: Evidence from Australia
 
-R codes for <font style="font-variant:small-caps">Cornell-Farrow and Garrard</font> (2018). 
+R codes for
+
+Sarah Cornell-Farrow & Robert Garrard (2020). Machine learning classifiers do not improve the prediction of academic risk: Evidence from Australia. <i>Communications in Statistics: Case Studies, Data Analysis and Applications, 6:2</i>, 228-246, DOI: <a href='http://www.doi.org/10.1080/23737484.2020.1752849'>10.1080/23737484.2020.1752849</a>
 
 ## Data Availability
 The data used in this paper are the de-identified individual-level NAPLAN data from 2013 and 2014. This data set is confidential but may be obtained by researchers through ACARA's Data Access Program at <a href="http://www.acara.edu.au/contact-us/acara-data-access">http://www.acara.edu.au/contact-us/acara-data-access</a>.
